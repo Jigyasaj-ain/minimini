@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Ads - AdWave</title>
+    <style>
+        /* Use the same styles from the main page */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        .hero {
+            background-color: #cfe9f7;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #0e7490;
+            font-size: 2.5rem;
+        }
+
+        /* Submit Ads Form */
+        .submit-ads {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .submit-ads h2 {
+            color: #1e40af;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .submit-ads form {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .submit-ads form label {
+            display: block;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .submit-ads form input[type="text"], 
+        .submit-ads form input[type="file"], 
+        .submit-ads form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e0;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .submit-ads form textarea {
+            height: 100px;
+        }
+
+        .submit-ads form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .submit-ads form button:hover {
+            background-color: #1e40af;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="submit-ads.html">Submit Ads</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Submit Ads Form Section -->
+    <section class="submit-ads">
+        <h2>Submit Your Ad</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="ad-title">Ad Title</label>
+            <input type="text" id="ad-title" name="ad-title" required>
+
+            <label for="ad-description">Ad Description</label>
+            <textarea id="ad-description" name="ad-description" required></textarea>
+
+            <label for="ad-image">Upload Ad Image</label>
+            <input type="file" id="ad-image" name="ad-image" required>
+
+            <button type="submit">Submit Ad</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AdWave. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
