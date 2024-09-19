@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up - AdWave</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E5E5E5;
+            color: #333;
+        }
+
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .tab.active {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+        }
+
+        /* For displaying the login/signup modal button */
+        #showModal {
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #showModal:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Trigger Button -->
+    <button id="showModal" onclick="openModal()">Login / Sign Up</button>
+
+    <!-- Login and Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div>
+                <span id="loginTab" class="tab active" onclick="showLogin()">Login</span>
+                <span id="signupTab" class="tab" onclick="showSignup()">Sign Up</span>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="form-container">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <div class="error-message" id="loginError"></div>
+                <button onclick="handleLogin()">Login</button>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="form-container" style="display: none;">
+                <h2>Sign Up</h2>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                <div class="error-message" id="signupError"></div>
+                <button onclick="handleSignup()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show Modal
+        function openModal() {
+            document.getElementById("authModal").style.display = "flex";
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById("authModal").style.display = "none";
+        }
+
+        // Switch to Login Form
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginTab').classList.add('active');
+            document.getElementById('signupTab').classList.remove('active');
+        }
+
+        // Switch to Sign Up Form
+        function showSignup() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('loginTab').classList.remove('active');
+            document.getElementById('signupTab').classList.add('active');
+        }
+
+        // Handle Login
+        function handleLogin() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            const errorElement = document.getElementById("loginError");
+
+            // Basic validation
+            if (email === "" || password === "") {
+                errorElement.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            // Mock login success (replace with actual authentication logic)
+            if (email === "test@adwave.com" && password === "password") {
+                alert("Login successful!");
+                closeModal();
+            } else {
+                errorElement.textContent = "Incorrect email or password.";
+            }
+        }
+
+        // Handle Sign Up
+        function handleSignup() {
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+            const confirmPassword = document.getElementById("signupConfirmPassword").value;
+            const errorElement = document.getElementById("signupError");
+
+            // Basic validation
+            if (email === "" || password === "" || confirmPassword === "") {
+                errorElement.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorElement.textContent = "Passwords do not match.";
+                return;
+            }
+
+            // Mock sign up success (replace with actual registration logic)
+            alert("Sign Up successful!");
+            closeModal();
+        }
+    </script>
+
+</body>
+</html>
