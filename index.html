@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,44 +13,46 @@
             background-color: #E5E5E5;
             color: #333;
         }
- 
+
         header {
             background-color: #2B2B2B;
             padding: 15px;
             text-align: center;
             color: #fff;
         }
- 
+
         nav {
             display: flex;
             justify-content: space-between;
             padding: 10px 50px;
             background-color: #333;
+            align-items: center;
         }
- 
+
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
- 
+
         nav ul li {
             margin-right: 20px;
         }
- 
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
         }
- 
+
         nav ul li a:hover {
             color: #a7f3d0;
         }
- 
+
         .login-signup {
             display: flex;
         }
- 
+
         .login-signup a {
             margin-left: 15px;
             padding: 10px 15px;
@@ -60,11 +61,11 @@
             border-radius: 8px;
             text-decoration: none;
         }
- 
+
         .login-signup a:hover {
             background-color: #4b5563;
         }
- 
+
         .hero {
             display: flex;
             flex-direction: column;
@@ -75,21 +76,21 @@
             text-align: center;
             padding: 40px;
         }
- 
+
         .hero h1 {
             color: #0e7490;
             font-size: 2.5rem;
         }
- 
+
         .hero p {
             font-size: 1.2rem;
             color: #1f2937;
         }
- 
+
         .hero-buttons {
             margin-top: 20px;
         }
- 
+
         .hero-buttons a {
             padding: 15px 30px;
             color: white;
@@ -98,11 +99,11 @@
             text-decoration: none;
             margin: 0 10px;
         }
- 
+
         .hero-buttons a:hover {
             background-color: #1e40af;
         }
- 
+
         /* Services Section */
         .services {
             display: flex;
@@ -110,7 +111,7 @@
             padding: 50px;
             background-color: #f9fafb;
         }
- 
+
         .service-box {
             width: 200px;
             padding: 20px;
@@ -119,38 +120,38 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
- 
+
         .service-box img {
             width: 80px;
             margin-bottom: 15px;
         }
- 
+
         .service-box h3 {
             color: #6d28d9;
         }
- 
+
         .service-box p {
             color: #64748b;
         }
- 
+
         .about {
             background-color: #edf2f7;
             padding: 50px;
             text-align: center;
         }
- 
+
         .about img {
             width: 400px;
             border-radius: 15px;
         }
- 
+
         /* Pricing Section */
         .pricing {
             background-color: #f8fafc;
             padding: 50px;
             text-align: center;
         }
- 
+
         .pricing-box {
             background-color: #ffffff;
             padding: 20px;
@@ -159,20 +160,20 @@
             margin: 0 20px;
             display: inline-block;
         }
- 
+
         .pricing-box h3 {
             color: #2563eb;
         }
- 
+
         .pricing-box p {
             color: #374151;
         }
- 
+
         .pricing-box .price {
             font-size: 24px;
             color: #9333ea;
         }
- 
+
         .pricing-box button {
             padding: 10px 20px;
             color: white;
@@ -181,11 +182,11 @@
             border-radius: 8px;
             cursor: pointer;
         }
- 
+
         .pricing-box button:hover {
             background-color: #1e40af;
         }
- 
+
         /* Footer */
         footer {
             background-color: #333;
@@ -193,36 +194,32 @@
             text-align: center;
             padding: 20px;
         }
- 
+
         footer p {
             margin: 0;
         }
      
-.adwave-container {
-    display: flex;
-    align-items: center; /* Vertically aligns image and text */
-    margin-left:10px; 
-}
+        .adwave-container {
+            display: flex;
+            align-items: center; /* Vertically aligns image and text */
+        }
 
-.logo-image {
-    width: 50px; /* Adjust the size as needed */
-    height: auto;
-    margin-right: 10px; /* Space between image and text */
-}
+        .logo-image {
+            width: 50px; /* Adjust the size as needed */
+            height: auto;
+            margin-right: 10px; /* Space between image and text */
+        }
 
     </style>
 </head>
  
 <body>
- 
-   <div class="adwave-container">
-    <img src="logo.png" alt="AdWave Logo" class="logo-image">
-    <h1>Discover a new wave of Advertising with AdWave</h1>
-</div>
-
- 
     <nav>
         <ul>
+            <li class="adwave-container">
+                <img src="logo.png" alt="AdWave Logo" class="logo-image">
+                <span style="color: #fff; font-size: 18px;">Discover a new wave of Advertising with AdWave</span>
+            </li>
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Features</a></li>
@@ -235,7 +232,7 @@
             <a href="#">Sign Up</a>
         </div>
     </nav>
- 
+
     <!-- Hero Section -->
     <section class="hero">
         <h1>Discover a new wave of Advertising with AdWave!</h1>
@@ -245,7 +242,7 @@
             <a href="#">Join Now</a>
         </div>
     </section>
- 
+
     <!-- Services Section -->
     <section class="services">
         <div class="service-box">
@@ -269,14 +266,14 @@
             <p>Learn More</p>
         </div>
     </section>
- 
+
     <!-- About Section -->
     <section class="about">
         <h2>Why Choose Us?</h2>
         <p>AdWave offers tailored solutions for your advertising needs.</p>
         <img src="https://via.placeholder.com/400" alt="About Us">
     </section>
- 
+
     <!-- Pricing Section -->
     <section class="pricing">
         <h2>Pricing Plans</h2>
@@ -299,12 +296,11 @@
             <button>Book Now</button>
         </div>
     </section>
- 
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 AdWave. All Rights Reserved.</p>
     </footer>
- 
+
 </body>
- 
 </html>
