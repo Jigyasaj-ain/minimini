@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdWave Functionalities</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            padding: 20px;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        /* Ad Rotation Styling */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: #f3f4f6;
+            margin: 20px auto;
+            width: 80%;
+            position: relative;
+        }
+
+        .ad {
+            width: 80%;
+            height: 300px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .ad img, .ad video {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+        }
+
+        .ad.hide {
+            opacity: 0;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Feedback Form */
+        .feedback-container {
+            background-color: #eef2ff;
+            padding: 30px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-container h2 {
+            color: #4338ca;
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .feedback-container button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-container button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .feedback-message {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: green;
+        }
+
+        /* Multilingual Ad Support */
+        .multilingual {
+            margin: 30px 0;
+        }
+
+        .language-select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Heat Mapping and AR Placeholders */
+        .heat-map, .ar-section {
+            margin: 40px 0;
+        }
+
+        .heat-map, .ar-section p {
+            font-size: 1.2rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>AdWave - Functionalities</h1>
+    </header>
+
+    <!-- Ad Display Section -->
+    <section class="ad-container">
+        <div class="ad" id="ad1">
+            <img src="ad1.jpg" alt="Ad 1">
+        </div>
+        <div class="ad hide" id="ad2">
+            <img src="ad2.jpg" alt="Ad 2">
+        </div>
+        <div class="ad hide" id="ad3">
+            <video src="ad3.mp4" autoplay muted loop></video>
+        </div>
+    </section>
+
+    <!-- Ad Rotation Controls -->
+    <div class="controls">
+        <button onclick="prevAd()">Previous</button>
+        <button onclick="nextAd()">Next</button>
+    </div>
+
+    <!-- Feedback Module -->
+    <section class="feedback-container">
+        <h2>Submit Your Feedback</h2>
+        <textarea id="feedback" placeholder="Leave your feedback here"></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+        <p id="feedback-message" class="feedback-message"></p>
+    </section>
+
+    <!-- Multilingual Ad Support -->
+    <div class="multilingual">
+        <h3>Select Language:</h3>
+        <select class="language-select" id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+        </select>
+    </div>
+
+    <!-- Heat Mapping Section (Placeholder) -->
+    <div class="heat-map">
+        <h3>Heat Mapping Module</h3>
+        <p>Track viewer interactions to display context-aware ads.</p>
+    </div>
+
+    <!-- Augmented Reality (AR) Section (Placeholder) -->
+    <div class="ar-section">
+        <h3>AR Integration</h3>
+        <p>Display augmented reality models related to the ad content.</p>
+    </div>
+
+    <script>
+        // Ad Rotation Script
+        let currentAd = 0;
+        const ads = document.querySelectorAll('.ad');
+
+        function nextAd() {
+            ads[currentAd].classList.add('hide');
+            currentAd = (currentAd + 1) % ads.length;
+            ads[currentAd].classList.remove('hide');
+        }
+
+        function prevAd() {
+            ads[currentAd].classList.add('hide');
+            currentAd = (currentAd - 1 + ads.length) % ads.length;
+            ads[currentAd].classList.remove('hide');
+        }
+
+        // Rotate ads automatically every 5 seconds
+        setInterval(nextAd, 5000);
+
+        // Feedback Submission
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback').value;
+            const feedbackMessage = document.getElementById('feedback-message');
+
+            if (feedback.trim() === '') {
+                feedbackMessage.textContent = "Please enter feedback before submitting!";
+                feedbackMessage.style.color = "red";
+            } else {
+                feedbackMessage.textContent = "Thank you for your feedback!";
+                feedbackMessage.style.color = "green";
+                document.getElementById('feedback').value = "";  // Clear textarea
+            }
+        }
+
+        // Multilingual Ad Support (Placeholder)
+        function changeLanguage() {
+            const lang = document.getElementById('language-select').value;
+            alert('Language changed to: ' + lang);
+        }
+    </script>
+
+</body>
+
+</html>
