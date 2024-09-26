@@ -8,39 +8,113 @@
     <style>
         /* Global Styles */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+            background-color: #E5E5E5;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
+        /* Header and Navigation */
         header {
-            background-color: #0a192f;
-            padding: 20px;
+            background-color: #2B2B2B;
+            padding: 15px;
             text-align: center;
-            color: #ffffff;
+            color: #fff;
         }
 
-        h1 {
-            margin: 0;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #cfe9f7;
+            height: 60vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            color: #0e7490;
             font-size: 2.5rem;
-            font-weight: 600;
-            color: #64ffda;
         }
 
-        section {
-            padding: 40px 0;
-            text-align: center;
+        .hero p {
+            font-size: 1.2rem;
+            color: #1f2937;
         }
 
-        /* Ad Rotation Styling */
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            padding: 15px 30px;
+            color: white;
+            background-color: #2563eb;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero-buttons a:hover {
+            background-color: #1e40af;
+        }
+
+        /* Ad Display Section */
         .ad-container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 300px;
-            background-color: #e0e8f9;
+            background-color: #ffffff;
             margin: 20px auto;
             width: 80%;
             position: relative;
@@ -73,21 +147,53 @@
         }
 
         .controls {
-            margin-top: 20px;
+            text-align: center;
+            margin: 20px auto;
         }
 
         .controls button {
             padding: 10px 20px;
-            background-color: #64ffda;
-            color: #0a192f;
+            background-color: #2563eb;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
+            margin: 0 10px;
         }
 
         .controls button:hover {
-            background-color: #52d0bd;
+            background-color: #1e40af;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: #f9fafb;
+        }
+
+        .service-box {
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            background-color: #D3D3D3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .service-box img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            color: #0e7490;
+        }
+
+        .service-box p {
+            color: #64748b;
         }
 
         /* Feedback Form */
@@ -115,13 +221,13 @@
             border-radius: 10px;
             border: 1px solid #ccd6f6;
             margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         .feedback-container button {
             padding: 10px 20px;
-            background-color: #64ffda;
-            color: #0a192f;
+            background-color: #2563eb;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -129,7 +235,7 @@
         }
 
         .feedback-container button:hover {
-            background-color: #52d0bd;
+            background-color: #1e40af;
         }
 
         .feedback-message {
@@ -138,46 +244,94 @@
             color: green;
         }
 
-        /* Multilingual Ad Support */
-        .multilingual {
-            margin: 30px 0;
+        /* Pricing Section */
+        .pricing {
+            background-color: #f8fafc;
+            padding: 50px;
+            text-align: center;
         }
 
-        .language-select {
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccd6f6;
-            font-family: 'Poppins', sans-serif;
+        .pricing-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            display: inline-block;
+            width: 200px;
         }
 
-        /* Heat Mapping and AR Placeholders */
-        .heat-map,
-        .ar-section {
-            margin: 40px 0;
+        .pricing-box h3 {
+            color: #2563eb;
         }
 
-        .heat-map h3,
-        .ar-section h3 {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: #0a192f;
+        .pricing-box p {
+            color: #374151;
         }
 
-        .heat-map p,
-        .ar-section p {
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin: 10px 0;
+        .pricing-box .price {
+            font-size: 24px;
+            color: #0e7490;
         }
+
+        .pricing-box button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pricing-box button:hover {
+            background-color: #1e40af;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>AdWave - Functionalities</h1>
-    </header>
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="logo.png" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="index.html"><b>AdWave</b></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="display.html">Dynamic Display</a></li>
+            <li><a href="submitads.html">Submit Ads</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="login.html">Login</a>
+            <a href="login.html">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Discover a new wave of Advertising with AdWave!</h1>
+        <p>Submit, manage, and display ads effortlessly. Track ad performance and make data-driven decisions. Join the AdWave community today!</p>
+        <div class="hero-buttons">
+            <a href="#">Contact Us</a>
+            <a href="#">Join Now</a>
+        </div>
+    </section>
 
     <!-- Ad Display Section -->
     <section class="ad-container">
@@ -188,88 +342,90 @@
             <img src="ad2.jpg" alt="Ad 2">
         </div>
         <div class="ad hide" id="ad3">
-            <video src="ad3.mp4" autoplay muted loop></video>
+            <img src="ad3.jpg" alt="Ad 3">
         </div>
     </section>
 
-    <!-- Ad Rotation Controls -->
+    <!-- Controls for Ad Display -->
     <div class="controls">
-        <button onclick="prevAd()">Previous</button>
-        <button onclick="nextAd()">Next</button>
+        <button onclick="showAd(1)">Ad 1</button>
+        <button onclick="showAd(2)">Ad 2</button>
+        <button onclick="showAd(3)">Ad 3</button>
     </div>
 
-    <!-- Feedback Module -->
-    <section class="feedback-container">
-        <h2>Submit Your Feedback</h2>
-        <textarea id="feedback" placeholder="Leave your feedback here"></textarea>
-        <button onclick="submitFeedback()">Submit Feedback</button>
-        <p id="feedback-message" class="feedback-message"></p>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="service-box">
+            <img src="service1.png" alt="Service 1">
+            <h3>Easy Ad Submission</h3>
+            <p>Submit ads with a few clicks and see them live in minutes.</p>
+        </div>
+        <div class="service-box">
+            <img src="service2.png" alt="Service 2">
+            <h3>Dynamic Display</h3>
+            <p>Showcase ads on multiple screens dynamically and in real-time.</p>
+        </div>
+        <div class="service-box">
+            <img src="service3.png" alt="Service 3">
+            <h3>Performance Tracking</h3>
+            <p>Track ad performance with detailed analytics and reports.</p>
+        </div>
     </section>
 
-    <!-- Multilingual Ad Support -->
-    <div class="multilingual">
-        <h3>Select Language:</h3>
-        <select class="language-select" id="language-select" onchange="changeLanguage()">
-            <option value="en">English</option>
-            <option value="fr">French</option>
-            <option value="es">Spanish</option>
-        </select>
-    </div>
+    <!-- Feedback Form -->
+    <section class="feedback-container">
+        <h2>Give us your feedback!</h2>
+        <textarea placeholder="Write your feedback here..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+        <p class="feedback-message" id="feedback-message"></p>
+    </section>
 
-    <!-- Heat Mapping Section (Placeholder) -->
-    <div class="heat-map">
-        <h3>Heat Mapping Module</h3>
-        <p>Track viewer interactions to display context-aware ads.</p>
-    </div>
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2>Our Pricing Plans</h2>
+        <div class="pricing-box">
+            <h3>Basic</h3>
+            <p class="price">$9.99/month</p>
+            <p>For individual advertisers.</p>
+            <button>Choose Plan</button>
+        </div>
+        <div class="pricing-box">
+            <h3>Pro</h3>
+            <p class="price">$29.99/month</p>
+            <p>For businesses and agencies.</p>
+            <button>Choose Plan</button>
+        </div>
+        <div class="pricing-box">
+            <h3>Enterprise</h3>
+            <p class="price">$99.99/month</p>
+            <p>For large organizations.</p>
+            <button>Choose Plan</button>
+        </div>
+    </section>
 
-    <!-- Augmented Reality (AR) Section (Placeholder) -->
-    <div class="ar-section">
-        <h3>AR Integration</h3>
-        <p>Display augmented reality models related to the ad content.</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AdWave. All rights reserved.</p>
+    </footer>
 
     <script>
-        // Ad Rotation Script
-        let currentAd = 0;
-        const ads = document.querySelectorAll('.ad');
-
-        function nextAd() {
-            ads[currentAd].classList.add('hide');
-            currentAd = (currentAd + 1) % ads.length;
-            ads[currentAd].classList.remove('hide');
+        // JavaScript function to switch between ads
+        function showAd(adNumber) {
+            var ads = document.querySelectorAll('.ad');
+            ads.forEach(function(ad, index) {
+                if (index === adNumber - 1) {
+                    ad.classList.remove('hide');
+                } else {
+                    ad.classList.add('hide');
+                }
+            });
         }
 
-        function prevAd() {
-            ads[currentAd].classList.add('hide');
-            currentAd = (currentAd - 1 + ads.length) % ads.length;
-            ads[currentAd].classList.remove('hide');
-        }
-
-        // Rotate ads automatically every 5 seconds
-        setInterval(nextAd, 5000);
-
-        // Feedback Submission
+        // JavaScript function to show feedback message
         function submitFeedback() {
-            const feedback = document.getElementById('feedback').value;
-            const feedbackMessage = document.getElementById('feedback-message');
-
-            if (feedback.trim() === '') {
-                feedbackMessage.textContent = "Please enter feedback before submitting!";
-                feedbackMessage.style.color = "red";
-            } else {
-                feedbackMessage.textContent = "Thank you for your feedback!";
-                feedbackMessage.style.color = "green";
-                document.getElementById('feedback').value = "";  // Clear textarea
-            }
-        }
-
-        // Multilingual Ad Support (Placeholder)
-        function changeLanguage() {
-            const lang = document.getElementById('language-select').value;
-            alert('Language changed to: ' + lang);
+            document.getElementById('feedback-message').innerText = "Thank you for your feedback!";
         }
     </script>
-
 </body>
 
 </html>
