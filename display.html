@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdWave - Ad Display Module</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1e40af;
+            padding: 20px;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Ad Display Container */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            background-color: #f9fafb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad {
+            width: 80%;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .ad img, .ad video {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+        }
+
+        .ad.hide {
+            opacity: 0;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .controls button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Multilingual Ad Section */
+        .multilingual {
+            margin: 30px 0;
+        }
+
+        .language-select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>AdWave Ad Display Module</h1>
+    </header>
+
+    <!-- Ad Display Section -->
+    <div class="ad-container">
+        <div class="ad" id="ad1">
+            <img src="ad1.jpg" alt="Ad 1">
+        </div>
+        <div class="ad hide" id="ad2">
+            <img src="ad2.jpg" alt="Ad 2">
+        </div>
+        <div class="ad hide" id="ad3">
+            <video src="ad3.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+
+    <!-- Ad Rotation Controls -->
+    <div class="controls">
+        <button onclick="prevAd()">Previous</button>
+        <button onclick="nextAd()">Next</button>
+    </div>
+
+    <!-- Multilingual Ad Support -->
+    <div class="multilingual">
+        <h3>Select Language:</h3>
+        <select class="language-select" id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+        </select>
+    </div>
+
+    <script>
+        let currentAd = 0;
+        const ads = document.querySelectorAll('.ad');
+
+        // Function to show the next ad
+        function nextAd() {
+            ads[currentAd].classList.add('hide');
+            currentAd = (currentAd + 1) % ads.length;
+            ads[currentAd].classList.remove('hide');
+        }
+
+        // Function to show the previous ad
+        function prevAd() {
+            ads[currentAd].classList.add('hide');
+            currentAd = (currentAd - 1 + ads.length) % ads.length;
+            ads[currentAd].classList.remove('hide');
+        }
+
+        // Automatically rotate ads every 5 seconds
+        setInterval(nextAd, 5000);
+
+        // Multilingual Ad Support
+        function changeLanguage() {
+            const lang = document.getElementById('language-select').value;
+            alert('Language changed to: ' + lang);
+            // In a real implementation, fetch and display the ad content based on the selected language.
+        }
+    </script>
+
+</body>
+
+</html>
