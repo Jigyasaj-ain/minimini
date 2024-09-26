@@ -1,165 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdWave - Ad Display Module</title>
+    <title>AdWave - Display Ads</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f3f4f6;
+            background-color: #E5E5E5;
             color: #333;
-            text-align: center;
         }
 
-        header {
-            background-color: #1e40af;
-            padding: 20px;
-            color: white;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        /* Ad Display Container */
-        .ad-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
-            background-color: #f9fafb;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ad {
-            width: 80%;
-            height: 400px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .ad img, .ad video {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 15px;
-        }
-
-        .ad.hide {
-            opacity: 0;
-        }
-
-        /* Controls */
-        .controls {
+        /* Navigation Bar Styles */
+        nav {
             display: flex;
             justify-content: space-between;
-            width: 300px;
-            margin: 20px auto;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
         }
 
-        .controls button {
-            background-color: #2563eb;
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
             color: white;
-            border: none;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        /* Display Ads Section */
+        .display-ads {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .display-ads h2 {
+            color: #0e7490;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .ads-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between ads */
+        }
+
+        .ad-card {
+            width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .ad-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .ad-card h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .ad-card p {
+            color: #374151;
+            margin-bottom: 15px;
+        }
+
+        .ad-card button {
             padding: 10px 20px;
-            border-radius: 5px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .controls button:hover {
-            background-color: #1d4ed8;
+        .ad-card button:hover {
+            background-color: #1e40af;
         }
 
-        /* Multilingual Ad Section */
-        .multilingual {
-            margin: 30px 0;
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
-        .language-select {
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        footer p {
+            margin: 0;
+        }
+        
+        .adwave-container {
+            display: flex;
+            align-items: center; /* Vertically aligns image and text */
+        }
+
+        .logo-image {
+            width: 50px; /* Adjust the size as needed */
+            height: auto;
         }
     </style>
 </head>
-
 <body>
-
-    <header>
-        <h1>AdWave Ad Display Module</h1>
-    </header>
-
-    <!-- Ad Display Section -->
-    <div class="ad-container">
-        <div class="ad" id="ad1">
-            <img src="ad1.jpg" alt="Ad 1">
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="logo.png" alt="AdWave Logo" class="logo-image">
+            </li>
+            <li><a href="index.html"><b>AdWave</b></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Dynamic Display</a></li>
+            <li><a href="submitads.html">Submit Ads</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="login.html">Login</a>
+            <a href="login.html">Sign Up</a>
         </div>
-        <div class="ad hide" id="ad2">
-            <img src="ad2.jpg" alt="Ad 2">
+    </nav>
+
+    <!-- Display Ads Section -->
+    <section class="display-ads">
+        <h2>Our Featured Ads</h2>
+        <div class="ads-container">
+            <!-- Example Ad Card -->
+            <div class="ad-card">
+                <img src="https://via.placeholder.com/300x200" alt="Ad Image">
+                <h3>Ad Title 1</h3>
+                <p>This is a brief description of the ad. Highlight key features and details here.</p>
+                <button>Learn More</button>
+            </div>
+            <!-- Repeat Ad Cards as needed -->
+            <div class="ad-card">
+                <img src="https://via.placeholder.com/300x200" alt="Ad Image">
+                <h3>Ad Title 2</h3>
+                <p>This is a brief description of the ad. Highlight key features and details here.</p>
+                <button>Learn More</button>
+            </div>
+            <div class="ad-card">
+                <img src="https://via.placeholder.com/300x200" alt="Ad Image">
+                <h3>Ad Title 3</h3>
+                <p>This is a brief description of the ad. Highlight key features and details here.</p>
+                <button>Learn More</button>
+            </div>
+            <!-- Add more ad cards as needed -->
         </div>
-        <div class="ad hide" id="ad3">
-            <video src="ad3.mp4" autoplay muted loop></video>
-        </div>
-    </div>
+    </section>
 
-    <!-- Ad Rotation Controls -->
-    <div class="controls">
-        <button onclick="prevAd()">Previous</button>
-        <button onclick="nextAd()">Next</button>
-    </div>
-
-    <!-- Multilingual Ad Support -->
-    <div class="multilingual">
-        <h3>Select Language:</h3>
-        <select class="language-select" id="language-select" onchange="changeLanguage()">
-            <option value="en">English</option>
-            <option value="fr">French</option>
-            <option value="es">Spanish</option>
-        </select>
-    </div>
-
-    <script>
-        let currentAd = 0;
-        const ads = document.querySelectorAll('.ad');
-
-        // Function to show the next ad
-        function nextAd() {
-            ads[currentAd].classList.add('hide');
-            currentAd = (currentAd + 1) % ads.length;
-            ads[currentAd].classList.remove('hide');
-        }
-
-        // Function to show the previous ad
-        function prevAd() {
-            ads[currentAd].classList.add('hide');
-            currentAd = (currentAd - 1 + ads.length) % ads.length;
-            ads[currentAd].classList.remove('hide');
-        }
-
-        // Automatically rotate ads every 5 seconds
-        setInterval(nextAd, 5000);
-
-        // Multilingual Ad Support
-        function changeLanguage() {
-            const lang = document.getElementById('language-select').value;
-            alert('Language changed to: ' + lang);
-            // In a real implementation, fetch and display the ad content based on the selected language.
-        }
-    </script>
-
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AdWave. All Rights Reserved.</p>
+    </footer>
 </body>
-
 </html>
