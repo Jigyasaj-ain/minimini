@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AdWave</title>
     <style>
         /* Global Styles */
         body {
@@ -20,6 +21,7 @@
             text-align: center;
             color: #fff;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,6 +34,8 @@
             display: flex;
             list-style: none;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         nav ul li {
@@ -42,11 +46,42 @@
             color: #fff;
             text-decoration: none;
             font-size: 18px;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #a7f3d0;
         }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        .adwave-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+        }
+
         .container {
             padding: 50px;
             text-align: center;
@@ -65,11 +100,14 @@
             margin-bottom: 30px;
         }
 
-        /* Mission, Vision, and Team */
+        /* Mission, Vision, and Values */
         .about-sections {
             display: flex;
             justify-content: space-around;
-            margin-bottom: 50px;
+            margin: 50px auto;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
         }
 
         .about-box {
@@ -77,7 +115,7 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 30%;
+            width: 300px;
             transition: transform 0.3s;
         }
 
@@ -99,7 +137,7 @@
         /* Our Team Section */
         .team-section {
             background-color: #eef2ff;
-            padding: 50px 0;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -113,6 +151,7 @@
             display: flex;
             justify-content: center;
             gap: 40px;
+            flex-wrap: wrap;
         }
 
         .team-member {
@@ -121,6 +160,11 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
         }
 
         .team-member img {
@@ -154,25 +198,11 @@
         footer p {
             margin: 0;
         }
-         .adwave-container {
-            display: flex;
-            align-items: center; /* Vertically aligns image and text */
-        }
-
-        .logo-image {
-            width: 50px; /* Adjust the size as needed */
-            height: auto;
-     /* Space between image and text */
-        }
-
     </style>
 </head>
 
 <body>
-
-   
-
-<nav>
+    <nav>
         <ul>
             <li class="adwave-container">
                 <img src="logo.png" alt="AdWave Logo" class="logo-image">
@@ -191,16 +221,13 @@
         </div>
     </nav>
 
-
     <div class="container">
         <h1>Welcome to AdWave!</h1>
         <p>
             At AdWave, we are committed to revolutionizing the world of advertising. Our platform offers a unique
-            approach
-            by leveraging the latest technologies, including Augmented Reality, Heat Mapping Sensors, and Geofencing,
-            to
-            deliver dynamic and interactive ads tailored to your audience.
-        Our aim is to make sure Companies and their graphic designers get their product valued in the best way possible.
+            approach by leveraging the latest technologies, including Augmented Reality, Heat Mapping Sensors, and Geofencing,
+            to deliver dynamic and interactive ads tailored to your audience.
+            Our aim is to make sure Companies and their graphic designers get their product valued in the best way possible.
         </p>
         <p>
             Our mission is to help businesses engage with their audience in a more meaningful way, creating impactful
@@ -213,7 +240,7 @@
         <div class="about-box">
             <h3>Our Mission</h3>
             <p>To empower businesses with innovative advertising solutions that engage audiences through dynamic and
-                interactive experiences.Our one place for all your marketing needs.</p>
+                interactive experiences. Our one place for all your marketing needs.</p>
         </div>
 
         <!-- Vision -->
@@ -236,17 +263,17 @@
         <h2>Meet Our Team</h2>
         <div class="team-members">
             <div class="team-member">
-                <img src="jigyasa.png" alt="Team Member">
+                <img src="jigyasa.png" alt="Jigyasa Jain">
                 <h4>Jigyasa Jain</h4>
                 <p>Founder & CEO</p>
             </div>
             <div class="team-member">
-                <img src="maitreyee.jpeg" alt="Team Member">
+                <img src="maitreyee.jpeg" alt="Maitreyee Kulkarni">
                 <h4>Maitreyee Kulkarni</h4>
                 <p>Chief Marketing Officer</p>
             </div>
             <div class="team-member">
-                <img src="tanaya.jpeg" alt="Team Member">
+                <img src="tanaya.jpeg" alt="Tanaya Joshi">
                 <h4>Tanaya Joshi</h4>
                 <p>Lead Developer</p>
             </div>
@@ -256,7 +283,6 @@
     <footer>
         <p>&copy; 2024 AdWave. All rights reserved.</p>
     </footer>
-
 </body>
 
 </html>
