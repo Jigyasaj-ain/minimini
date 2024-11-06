@@ -70,6 +70,7 @@
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            text-align: center;
         }
 
         .feedback-container h2 {
@@ -98,16 +99,20 @@
         .feedback-form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .feedback-form label {
             font-size: 1rem;
             color: #1f2937;
             margin-bottom: 5px;
+            align-self: flex-start;
         }
 
-        .feedback-form input, .feedback-form textarea, .feedback-form select {
+        .feedback-form input,
+        .feedback-form textarea {
             width: 100%;
+            max-width: 750px;
             padding: 10px;
             margin-bottom: 15px;
             border-radius: 5px;
