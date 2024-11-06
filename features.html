@@ -23,7 +23,7 @@
             color: #fff;
         }
 
-      nav {
+        nav {
             display: flex;
             justify-content: space-between;
             padding: 10px 50px;
@@ -74,7 +74,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /*background-image: url("homebg.png");*/
             background-color: #cfe9f7;
             height: 60vh;
             text-align: center;
@@ -114,6 +113,8 @@
             justify-content: space-around;
             padding: 50px;
             background-color: #f9fafb;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .service-box {
@@ -138,15 +139,40 @@
             color: #64748b;
         }
 
-        .about {
+        /* Feedback Section */
+        .feedback-container {
             background-color: #edf2f7;
             padding: 50px;
             text-align: center;
         }
 
-        .about img {
-            width: 400px;
-            border-radius: 15px;
+        .feedback-container textarea {
+            width: 80%;
+            height: 100px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        .feedback-container button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .feedback-container button:hover {
+            background-color: #1e40af;
+        }
+
+        .feedback-message {
+            color: #0e7490;
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
 
         /* Pricing Section */
@@ -202,15 +228,16 @@
         footer p {
             margin: 0;
         }
-     
+
         .adwave-container {
             display: flex;
-            align-items: center; /* Vertically aligns image and text */
+            align-items: center;
         }
 
         .logo-image {
-            width: 50px; /* Adjust the size as needed */
+            width: 50px;
             height: auto;
+        }
     </style>
 </head>
 
@@ -219,7 +246,7 @@
     <nav>
         <ul>
             <li class="adwave-container">
-                 <img src="{% static 'adwave/logo.png' %}" alt="AdWave Logo" class="logo-image">
+                <img src="{% static 'adwave/logo.png' %}" alt="AdWave Logo" class="logo-image">
             </li>
             <li><a href="index.html"><b>AdWave</b></a></li>
             <li><a href="index.html">Home</a></li>
@@ -268,40 +295,35 @@
     <!-- Services Section -->
     <section class="services">
         <div class="service-box">
-            <img src="easy-ad-submission.jpeg" alt="Easy Ad Submission">
+            <img src="{% static 'adwave/easy-ad-submission.jpeg' %}" alt="Easy Ad Submission">
             <h3>Easy Ad Submission</h3>
             <p>Submit ads with a few clicks and see them live in minutes.</p>
         </div>
         <div class="service-box">
-            <img src="dynamic-ad-display.gif" alt="Dynamic Ad Display">
+            <img src="{% static 'adwave/dynamic-ad-display.gif' %}" alt="Dynamic Ad Display">
             <h3>Dynamic Display</h3>
             <p>Showcase ads on multiple screens dynamically and in real-time.</p>
         </div>
         <div class="service-box">
-            <img src="performance-tracking.png" alt="Performance-Tracking">
+            <img src="{% static 'adwave/performance-tracking.png' %}" alt="Performance-Tracking">
             <h3>Performance Tracking</h3>
             <p>Track ad performance with detailed analytics and reports.</p>
         </div>
         <div class="service-box">
-            <img src="ad-scheduling.jpg" alt="Timely AD Scheduling">
+            <img src="{% static 'adwave/ad-scheduling.jpg' %}" alt="Timely AD Scheduling">
             <h3>Ad Scheduling</h3>
-            <p>We make sure that any ads you submit get displayed timely and the schedule is customizable.</p>
+            <p>We ensure your ads are displayed on a customizable schedule.</p>
         </div>
         <div class="service-box">
-            <img src="multilingual.jpg" alt="Multilingual">
+            <img src="{% static 'adwave/multilingual.jpg' %}" alt="Multilingual">
             <h3>Multilingual Ad Display</h3>
-            <p>We make sure that all your content</p>
+            <p>Display your content in multiple languages.</p>
         </div>
         <div class="service-box">
-            <img src="qr-feedback.png" alt="Feedback">
-            <h3>Feedback!</h3>
-            <p>We make sure that all your content and our services are appropriately being responded to </p>
+            <img src="{% static 'adwave/qr-feedback.png' %}" alt="Feedback">
+            <h3>Feedback</h3>
+            <p>Collect valuable feedback to improve your ad campaigns.</p>
         </div>
-
-        
-        
-        
-    
     </section>
 
     <!-- Feedback Form -->
