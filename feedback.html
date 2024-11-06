@@ -146,6 +146,23 @@
         footer p {
             margin: 0;
         }
+
+        .rating {
+            width: 100%;
+            max-width: 750px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .rating span {
+            font-size: 1rem;
+            color: #1f2937;
+        }
+
+        .rating input {
+            width: 80%;
+        }
     </style>
 </head>
 
@@ -170,19 +187,14 @@
 
         <!-- Polls Section -->
         <div class="poll-section">
+            <!-- Replacing the first question with a scale-based rating -->
             <p class="poll-question">How would you rate your experience with our ads?</p>
-            <label class="poll-option">
-                <input type="radio" name="experience" value="excellent"> Excellent
-            </label>
-            <label class="poll-option">
-                <input type="radio" name="experience" value="good"> Good
-            </label>
-            <label class="poll-option">
-                <input type="radio" name="experience" value="average"> Average
-            </label>
-            <label class="poll-option">
-                <input type="radio" name="experience" value="poor"> Poor
-            </label>
+            <div class="rating">
+                <span>1</span>
+                <input type="range" id="rating" name="rating" min="1" max="5" value="3">
+                <span>5</span>
+            </div>
+            <p>Rating: <span id="rating-value">3</span></p>
 
             <p class="poll-question">Did you find the ads relevant?</p>
             <label class="poll-option">
@@ -220,14 +232,19 @@
             const username = document.getElementById("username").value;
             const email = document.getElementById("email").value;
             const comments = document.getElementById("comments").value;
-            const experience = document.querySelector('input[name="experience"]:checked')?.value;
+            const rating = document.getElementById("rating").value;
             const relevance = document.querySelector('input[name="relevance"]:checked')?.value;
 
             // Display feedback information
-            alert(`Thank you for your feedback, ${username}!\n\nRating: ${experience}\nRelevant Ads: ${relevance}\nComments: ${comments}`);
-            
+            alert(`Thank you for your feedback, ${username}!\n\nRating: ${rating}\nRelevant Ads: ${relevance}\nComments: ${comments}`);
+
             // Clear form after submission
             document.getElementById("feedbackForm").reset();
+        });
+
+        // Update the displayed rating as the user interacts with the range input
+        document.getElementById("rating").addEventListener("input", function() {
+            document.getElementById("rating-value").textContent = this.value;
         });
     </script>
 
