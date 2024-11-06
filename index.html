@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdWave</title>
     <style>
-         body {
+        /* Global Styles */
+        body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -14,6 +15,7 @@
             color: #333;
         }
 
+        /* Header */
         header {
             background-color: #2B2B2B;
             padding: 15px;
@@ -21,6 +23,7 @@
             color: #fff;
         }
 
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -33,6 +36,8 @@
             display: flex;
             list-style: none;
             align-items: center;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li {
@@ -67,12 +72,12 @@
             background-color: #4b5563;
         }
 
+        /* Hero Section */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /*background-image: url("homebg.png");*/
             background-color: #cfe9f7;
             height: 60vh;
             text-align: center;
@@ -112,6 +117,8 @@
             justify-content: space-around;
             padding: 50px;
             background-color: #f9fafb;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .service-box {
@@ -130,12 +137,15 @@
 
         .service-box h3 {
             color: #0e7490;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .service-box p {
             color: #64748b;
         }
 
+        /* About Section */
         .about {
             background-color: #edf2f7;
             padding: 50px;
@@ -145,6 +155,7 @@
         .about img {
             width: 400px;
             border-radius: 15px;
+            margin-top: 20px;
         }
 
         /* Pricing Section */
@@ -161,19 +172,25 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin: 0 20px;
             display: inline-block;
+            width: 250px;
         }
 
         .pricing-box h3 {
             color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .pricing-box p {
             color: #374151;
+            font-size: 1rem;
         }
 
         .pricing-box .price {
             font-size: 24px;
             color: #0e7490;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .pricing-box button {
@@ -200,22 +217,22 @@
         footer p {
             margin: 0;
         }
-     
+
+        /* Logo Container */
         .adwave-container {
             display: flex;
-            align-items: center; /* Vertically aligns image and text */
+            align-items: center;
         }
 
         .logo-image {
-            width: 50px; /* Adjust the size as needed */
+            width: 50px;
             height: auto;
-     /* Space between image and text */
         }
     </style>
-    
 </head>
- 
+
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li class="adwave-container">
@@ -231,7 +248,7 @@
         </ul>
         <div class="login-signup">
             <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'login' %}">Sign Up</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
         </div>
     </nav>
 
@@ -248,22 +265,22 @@
     <!-- Services Section -->
     <section class="services">
         <div class="service-box">
-            <img src="{% static 'Laptop Metrics.png' %}" alt="Dynamic Display">
+            <img src="{% static 'adwave/Laptop Metrics.png' %}" alt="Dynamic Display">
             <h3>Dynamic Display</h3>
             <p>Learn More</p>
         </div>
         <div class="service-box">
-            <img src="{% static 'Web Marketing.png' %}" alt="Ad Analytics & Census"> 
+            <img src="{% static 'adwave/Web Marketing.png' %}" alt="Ad Analytics & Census"> 
             <h3>Ad Analytics & Census</h3>
             <p>Learn More</p>
         </div>
         <div class="service-box">
-            <img src="{% static 'Email Open.png' %}" alt="local promotions">
+            <img src="{% static 'adwave/Email Open.png' %}" alt="Local Promotions">
             <h3>Local Promotions</h3>
             <p>Learn More</p>
         </div>
         <div class="service-box">
-            <img src="{% static 'Paid Search.png' %}" alt="Feedback">            
+            <img src="{% static 'adwave/Paid Search.png' %}" alt="Feedback">            
             <h3>Feedback</h3>
             <p>Learn More</p>
         </div>
@@ -273,7 +290,7 @@
     <section class="about">
         <h2>Why Choose Us?</h2>
         <p>AdWave offers tailored solutions for your advertising needs.</p>
-        <img src="{% static 'wcu.gif' %}" alt="About Us">
+        <img src="{% static 'adwave/wcu.gif' %}" alt="About Us">
     </section>
 
     <!-- Pricing Section -->
@@ -303,6 +320,5 @@
     <footer>
         <p>&copy; 2024 AdWave. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
