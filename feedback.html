@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - AdWave</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5;
+            color: #333;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-right: 40px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        /* Feedback Module Styles */
+        .feedback-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .feedback-container h2 {
+            color: #0e7490;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Polls Section */
+        .poll-section {
+            margin-bottom: 30px;
+        }
+
+        .poll-question {
+            font-size: 1.2rem;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .poll-option {
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* Feedback Form Section */
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feedback-form label {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .feedback-form input, .feedback-form textarea, .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .feedback-form button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #1e40af;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="feedback-container">
+        <h2>Feedback Module</h2>
+
+        <!-- Polls Section -->
+        <div class="poll-section">
+            <p class="poll-question">How would you rate your experience with our ads?</p>
+            <label class="poll-option">
+                <input type="radio" name="experience" value="excellent"> Excellent
+            </label>
+            <label class="poll-option">
+                <input type="radio" name="experience" value="good"> Good
+            </label>
+            <label class="poll-option">
+                <input type="radio" name="experience" value="average"> Average
+            </label>
+            <label class="poll-option">
+                <input type="radio" name="experience" value="poor"> Poor
+            </label>
+
+            <p class="poll-question">Did you find the ads relevant?</p>
+            <label class="poll-option">
+                <input type="radio" name="relevance" value="yes"> Yes
+            </label>
+            <label class="poll-option">
+                <input type="radio" name="relevance" value="no"> No
+            </label>
+        </div>
+
+        <!-- Feedback Form -->
+        <form class="feedback-form" id="feedbackForm">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="comments">Comments or Suggestions:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Enter your feedback"></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AdWave. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle the feedback form submission
+        document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const comments = document.getElementById("comments").value;
+            const experience = document.querySelector('input[name="experience"]:checked')?.value;
+            const relevance = document.querySelector('input[name="relevance"]:checked')?.value;
+
+            // Display feedback information
+            alert(`Thank you for your feedback, ${username}!\n\nRating: ${experience}\nRelevant Ads: ${relevance}\nComments: ${comments}`);
+            
+            // Clear form after submission
+            document.getElementById("feedbackForm").reset();
+        });
+    </script>
+
+</body>
+
+</html>
