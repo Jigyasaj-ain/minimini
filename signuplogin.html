@@ -1,259 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Login & Sign Up - AdWave</title>
+    <title>Login - AdWave</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F9FAFB;
-            margin: 0;
-            padding: 0;
+        nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #333;
             align-items: center;
-            height: 100vh;
-            background: #F3F4F6;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #a7f3d0;
+        }
+
+        .login-signup {
+            display: flex;
+            margin-left: 20px;
+        }
+
+        .login-signup a {
+            margin-left: 15px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #6b7280;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            background-color: #4b5563;
+        }
+
+        .adwave-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            margin-right: 10px; /* Space between logo and text */
         }
 
         .container {
-            width: 400px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            margin-top: 40px;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+        .col-md-6 {
             border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .password-container {
-            position: relative;
-        }
-
-        .password-container input[type="password"] {
-            width: calc(100% - 40px);
-            float: left;
-        }
-
-        .toggle-password {
-            float: right;
-            margin-right: 10px;
-            margin-top: -35px;
-            cursor: pointer;
-            position: relative;
-            z-index: 10;
-            color: #333;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #3B82F6;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #2563EB;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 0.9rem;
-        }
-
-        .password-strength {
-            display: block;
-            margin-top: 5px;
-        }
-
-        .strength-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .strength-bar div {
-            height: 100%;
-        }
-
-        /* Tab styling */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #ddd;
-            border-radius: 5px;
-            margin: 0 5px;
-            font-size: 1.1rem;
-        }
-
-        .tab.active {
-            background-color: #3B82F6;
-            color: white;
-        }
-
-        .success-message {
-            color: green;
+            padding: 30px;
+            border-radius: 8px;
         }
     </style>
 </head>
-
 <body>
+    <nav>
+        <ul>
+            <li class="adwave-container">
+                <img src="{% static 'adwave/logo.png' %}" alt="AdWave Logo" class="logo-image">
+                <a href="index.html"><b>AdWave</b></a>
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="#">Submit Ads</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+        <div class="login-signup">
+            <a href="login.html">Login</a>
+            <a href="login.html">Sign Up</a>
+        </div>
+    </nav>
 
     <div class="container">
-        <!-- Tabs for Login and Sign Up -->
-        <div class="tabs">
-            <div id="loginTab" class="tab active" onclick="showLogin()">Login</div>
-            <div id="signupTab" class="tab" onclick="showSignup()">Sign Up</div>
-        </div>
-
-        <!-- Login Form -->
-        <div id="loginForm">
-            <h2>Login</h2>
-            <input type="email" id="loginEmail" placeholder="Email" required>
-            <div class="password-container">
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <span class="toggle-password" onclick="togglePassword('loginPassword')">&#128065;</span>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1>Login</h1>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
             </div>
-            <div class="error-message" id="loginError"></div>
-            <button onclick="handleLogin()">Login</button>
-        </div>
-
-        <!-- Sign Up Form -->
-        <div id="signupForm" style="display: none;">
-            <h2>Sign Up</h2>
-            <input type="email" id="signupEmail" placeholder="Email" required>
-            <div class="password-container">
-                <input type="password" id="signupPassword" placeholder="Password" required oninput="checkPasswordStrength()">
-                <span class="toggle-password" onclick="togglePassword('signupPassword')">&#128065;</span>
-            </div>
-            <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
-            <div class="strength-bar">
-                <div id="passwordStrength"></div>
-            </div>
-            <div class="error-message" id="signupError"></div>
-            <button onclick="handleSignup()">Sign Up</button>
         </div>
     </div>
 
-    <script>
-        // Switch between Login and Sign Up forms
-        function showLogin() {
-            document.getElementById('loginForm').style.display = 'block';
-            document.getElementById('signupForm').style.display = 'none';
-            document.getElementById('loginTab').classList.add('active');
-            document.getElementById('signupTab').classList.remove('active');
-        }
-
-        function showSignup() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('signupForm').style.display = 'block';
-            document.getElementById('loginTab').classList.remove('active');
-            document.getElementById('signupTab').classList.add('active');
-        }
-
-        // Toggle Show/Hide Password
-        function togglePassword(fieldId) {
-            const passwordField = document.getElementById(fieldId);
-            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-        }
-
-        // Handle Login
-        function handleLogin() {
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
-            const errorElement = document.getElementById("loginError");
-
-            if (!validateEmail(email)) {
-                errorElement.textContent = "Invalid email format.";
-                return;
-            }
-
-            if (password === "") {
-                errorElement.textContent = "Please enter your password.";
-                return;
-            }
-
-            // Simulate successful login (replace with actual backend logic)
-            alert("Login successful!");
-            errorElement.textContent = "";
-        }
-
-        // Handle Sign Up
-        function handleSignup() {
-            const email = document.getElementById("signupEmail").value;
-            const password = document.getElementById("signupPassword").value;
-            const confirmPassword = document.getElementById("signupConfirmPassword").value;
-            const errorElement = document.getElementById("signupError");
-
-            if (!validateEmail(email)) {
-                errorElement.textContent = "Invalid email format.";
-                return;
-            }
-
-            if (password === "") {
-                errorElement.textContent = "Please enter a password.";
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                errorElement.textContent = "Passwords do not match.";
-                return;
-            }
-
-            alert("Sign Up successful!");
-            errorElement.textContent = "";
-        }
-
-        // Validate Email
-        function validateEmail(email) {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailPattern.test(email);
-        }
-
-        // Check Password Strength
-        function checkPasswordStrength() {
-            const password = document.getElementById('signupPassword').value;
-            const strengthBar = document.getElementById('passwordStrength');
-            let strength = 0;
-
-            if (password.length >= 8) strength += 25;
-            if (/[A-Z]/.test(password)) strength += 25;
-            if (/[0-9]/.test(password)) strength += 25;
-            if (/[\W]/.test(password)) strength += 25;
-
-            strengthBar.style.width = strength + "%";
-            strengthBar.style.backgroundColor = strength === 100 ? "green" : strength >= 50 ? "orange" : "red";
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
